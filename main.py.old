@@ -7,8 +7,6 @@ file_path_list = []
 file_list = []
 root_list = []
 
-already_checked = []
-
 
 def verify_files():
 
@@ -23,17 +21,13 @@ def verify_files():
                 for file in files:
 
                     for check_file in check_files:
-                        if check_file in already_checked:
-                            pass
+
+                        if file == check_file:
+                            print('Arquivo duplicado encontrado: ', check_file)
+                            print('Caminho do arquivo em questão: ', check_root, '\n')
 
                         else:
-                            if file == check_file:
-                                print('Arquivo duplicado encontrado: ', check_file)
-                                print('Caminho do arquivo em questão: ', check_root, '\n')
-
-                                already_checked.append(os.path.join(check_root, file))
-                            else:
-                                pass
+                            pass
 
 
 if __name__ == "__main__":
