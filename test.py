@@ -1,5 +1,7 @@
-list = []
+from collections import namedtuple
 
-while True:
-    print('Adicionado!')
-    list.append(42342209545923454365476563464545476)
+file = namedtuple('arquivos', ['nome', 'caminho'])
+
+arquivo_03 = file('Nome_do_arquivo', r'c:\rodri\documents')
+
+print(arquivo_03)
