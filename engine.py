@@ -3,8 +3,8 @@
 import os
 from shutil import copy
 
-main_path = r'D:\DATABASE - BACKUP DE MIDIAS'
-# main_path = r'C:\Users\rodri\Documents\GitHub\Junk File\test'
+# main_path = r'D:\DATABASE - BACKUP DE MIDIAS'
+main_path = r'C:\Users\rodri\Documents\GitHub\Junk File\test'
 
 already_checked = []
 double_media = []
@@ -14,6 +14,9 @@ data_file_dict = {}
 
 
 def verify_files():
+    # main_path = r'D:\DATABASE - BACKUP DE MIDIAS'
+    main_path = r'C:\Users\rodri\Documents\GitHub\Junk File\test'
+
     for root, dirs, files in os.walk(main_path):
         for check_root, check_dirs, check_files in os.walk(main_path):
 
@@ -137,12 +140,13 @@ def copy_files():
 
     for root, dirs, files in os.walk(verify_this_path):
         for file in files:
-            print('Copiando arquivo: ', file.upper())
+            print('Copiando arquivo:')
             open_file = os.path.join(root, file)
             with open(open_file, 'r') as f:
                 for file_from_txt in f.readlines():
                     new_file_from_txt = file_from_txt.rstrip("\n")
 
+                    print(new_file_from_txt)
                     try:
 
                         copy(new_file_from_txt, path_temp_files)
@@ -150,5 +154,5 @@ def copy_files():
                     except OSError as error:
                         print(error)
 
-
+            print('\n')
 
