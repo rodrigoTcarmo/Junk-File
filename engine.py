@@ -2,9 +2,7 @@
 
 import os
 from shutil import copy
-
-# main_path = r'D:\DATABASE - BACKUP DE MIDIAS'
-main_path = r'C:\Users\rodri\Documents\GitHub\Junk File\test'
+import pathlib
 
 already_checked = []
 double_media = []
@@ -14,8 +12,7 @@ data_file_dict = {}
 
 
 def verify_files():
-    # main_path = r'D:\DATABASE - BACKUP DE MIDIAS'
-    main_path = r'C:\Users\rodri\Documents\GitHub\Junk File\test'
+    main_path = r'C:\Users\rodri\Documents\DATABASE - BACKUP DE MIDIAS'
 
     for root, dirs, files in os.walk(main_path):
         for check_root, check_dirs, check_files in os.walk(main_path):
@@ -149,10 +146,13 @@ def copy_files():
                     print(new_file_from_txt)
                     try:
 
+                        #move(new_file_from_txt, path_temp_files)
                         copy(new_file_from_txt, path_temp_files)
+                        os.remove(new_file_from_txt)
 
                     except OSError as error:
                         print(error)
+
 
             print('\n')
 
