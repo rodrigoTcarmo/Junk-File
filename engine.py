@@ -2,7 +2,6 @@
 
 import os
 from shutil import copy
-import pathlib
 
 already_checked = []
 double_media = []
@@ -145,14 +144,11 @@ def copy_files():
 
                     print(new_file_from_txt)
                     try:
-
-                        #move(new_file_from_txt, path_temp_files)
                         copy(new_file_from_txt, path_temp_files)
                         os.remove(new_file_from_txt)
 
                     except OSError as error:
                         print(error)
-
 
             print('\n')
 
